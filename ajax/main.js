@@ -31,6 +31,7 @@ search=()=>{
             list += `</div>`;
             
           }
+        
           list += `<div class="film film--empty"></div>`;
            list += `<div class="film film--empty"></div>`;  
           if(result.totalResults>10){
@@ -60,12 +61,20 @@ search=()=>{
                 list+=`<div class="film" >`;
                 list += `<div class="film__title " >${el.Title}</div>`;
                 list += `<div class="film__year">${el.Year}</div>`;
+                if(el.Poster=='N/A'){
+                  // console.log('gfsdgfs');
+                  el.Poster='./no_img.png';
+                }
                 list += `<div class="film__poster" style="background-image:url(${el.Poster})"></div>`;
+             
                 list += `<button id="detail" class="btn" onclick='details(this)' value='${el.imdbID}'>DETAILS</button>`;
                 list += `</div>`;
+               
               }
+           
               document.getElementById('film-list').innerHTML = list;
               document.getElementById('film-list').scrollIntoView({block: "start", behavior: "smooth"});
+             
             } 
          
           })
