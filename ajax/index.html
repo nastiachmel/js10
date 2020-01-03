@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./css/style.css">
+  <title>Document</title>
+</head>
+<body>
+  <div class="mainer">
+    <form onsubmit=" return false" name="form" class="form">
+      <label class="form__label">Title movie</label>
+      <input type="text" class="form__name-film" >
+      <label class="form__label">Select:</label>
+      <select name="movie" class="form__select-type">
+        <option value="movie">movie</option>
+        <option value="series">series</option>
+        <option value="episode">episode</option>
+      </select>
+
+      <button  type="submit" class="btn btn--search" onclick="search()">search</button>
+    </form>
+    <div class="film-list" id="film-list"> </div>
+    <div class="film-page" id="film-page"></div>
+    <div class="film-info" id="film-info"></div> 
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>
