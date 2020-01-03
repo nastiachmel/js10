@@ -17,7 +17,7 @@ search=()=>{
     if(option.selected) {
       // console.log(option.value);          
       let valSelect=option.value;
-      getData('http://www.omdbapi.com/?s="'+valName+'"&type="'+valSelect+'"&page=1&apikey=c557ed72').then(function(result){
+      getData('https://www.omdbapi.com/?s="'+valName+'"&type="'+valSelect+'"&page=1&apikey=c557ed72').then(function(result){
         console.log(result.totalResults);
         console.log(result);
         if(result.Response=='True'){
@@ -52,7 +52,7 @@ search=()=>{
                         
         pg=(elem)=>{
           console.log(elem.value);
-          getData('http://www.omdbapi.com/?s="'+valName+'"&type="'+valSelect+'"&page='+elem.value+'&apikey=c557ed72').then(function(result){
+          getData('https://www.omdbapi.com/?s="'+valName+'"&type="'+valSelect+'"&page='+elem.value+'&apikey=c557ed72').then(function(result){
             
             if(result.Response=='True'){
               let list= ``;                
@@ -80,7 +80,7 @@ search=()=>{
 details=(elem)=>{  
   console.log(elem.value);
   let info= elem.value;
-  getData('http://www.omdbapi.com/?i='+info+'&apikey=c557ed72').then(function(result){
+  getData('https://www.omdbapi.com/?i='+info+'&apikey=c557ed72').then(function(result){
     let list= ``;
     console.log(result);
     list+= `<div class="info">Detail info`;
