@@ -61,7 +61,9 @@ h1, h2 {
   padding: 30px;
 }
 
-
+::-webkit-input-placeholder{
+  font-size: 12px;
+}
 .form{
   text-align: center;
   border: 1px solid black;
@@ -71,7 +73,8 @@ h1, h2 {
   -webkit-box-shadow: 0px 0px 11px -1px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px 0px 11px -1px rgba(0,0,0,0.75);
   box-shadow: 0px 0px 11px -1px rgba(0,0,0,0.75);
-  margin-bottom: 20px;
+  max-width: 700px;
+  margin: 0 auto 20px auto;
 
   &__label{    
     font-size: 16px;
@@ -115,7 +118,7 @@ h1, h2 {
   cursor: pointer;
 
   &:hover{
-    background-color: hsl(0, 89%, 45%);
+    background-color: hsla(0, 0%, 18%, 0.548);
   }
 
   &--search{
@@ -128,15 +131,49 @@ h1, h2 {
     outline: none;
     font-size: 16px;
     margin: 0;
+
+    &:hover{
+      background-color: hsl(0, 89%, 45%);
+    }
   }
+
   &--page{
     height: 30px;
     width: 30px;
-    border-radius: 50%;
+    // border-radius: 50%;
+    border-radius: 0;
     margin: 5px;
+    padding: 0;
+    border: 1px solid rgb(138, 138, 240); 
+    background-color: hsl(222, 92%, 50%);
+
+    &:hover{
+      background-color:rgb(45, 45, 231);
+    }
 
     &:focus{
-      background-color: red;
+      background-color: rgb(21, 27, 44);
+    }
+  }
+
+  &--close{
+    
+    z-index: 100;
+    display: block;
+    cursor: pointer;
+    color: red;
+    float: right;
+    font-size: 32px;
+    font-weight: bold;
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    margin: 0;
+    margin-right: 10px;
+    
+    &:hover{
+      background-color: transparent;
+      color:black;
     }
   }
 }
@@ -155,7 +192,7 @@ h1, h2 {
 }
 .info{
   border-radius: 20px;
-  background-color: #d8d8d8bb;
+  background-color: #d8d8d8fb;
   border: 1px solid;
   text-align: center;
   font-size: 25px;
@@ -164,11 +201,13 @@ h1, h2 {
   -webkit-box-shadow: 0px 0px 11px -1px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px 0px 11px -1px rgba(0,0,0,0.75);
   box-shadow: 0px 0px 11px -1px rgba(0,0,0,0.75);
+  
 
   &__title{
     font-size: 20px;
     font-weight: bold;
     color: red;
+    padding-top: 10px;
   }
 }
 
@@ -183,6 +222,13 @@ h1, h2 {
     margin: 15px  ;
     padding: 15px;
     box-sizing: border-box;
+    transition-duration: 0.3s;
+
+    &:hover{
+      background-color: beige;
+      transform: scale(1.1);
+      cursor: pointer;
+    }
 
     &--empty{
       border: none;
@@ -193,18 +239,18 @@ h1, h2 {
         display:none;
       }
     }
+
   &__title{
-    color: red;
-    font-size: 20px;
+    color: #374352;
+    padding-top: 5px;
+    font-size: 15px;
+    font-weight: 700;
     // max-width:200px;
     text-align: center;
-  }
-  &__year{
-    text-align: center;
+
   }
 
-  &__poster{
-    margin-top: 5px;
+  &__poster{    
     height: 300px;
     // width: 200px;
     background-position: center;
@@ -213,3 +259,24 @@ h1, h2 {
   }
 }
 
+.modal{
+  display: none; 
+  position: fixed; 
+  z-index: 2;
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  background-color: rgba(0,0,0,0.4); 
+}
+
+@media screen and (max-width:607px){
+  .film{
+    width: 175px;
+  }
+  
+  .form__label{
+    display: none;
+  }
+}

@@ -11,8 +11,8 @@
   
   <div class="mainer">
     <form onsubmit=" return false" name="form" class="form">
-      <label class="form__label">Title movie</label>
-      <input type="text" class="form__name-film" >
+      <label class="form__label" >Title movie</label>
+      <input type="text" class="form__name-film"  placeholder="Enter name movie or selials">
       <label class="form__label">Select:</label>
       <select name="movie" class="form__select-type">
         <option value="movie">movie</option>
@@ -22,9 +22,12 @@
 
       <button  type="submit" class="btn btn--search" onclick="search()">search</button>
     </form>
-    <div class="film-list" id="film-list"> </div>
-    <div class="film-page" id="film-page"></div>
-    <div class="film-info" id="film-info"></div> 
+    <div class="film-list" > </div>
+    <div class="modal" >
+      <button class=" btn btn--close" onclick="close()">&times;</button>
+      <div class="modal-content"></div>
+    </div>
+    <div class="film-page" ></div>
   </div>
   <script src="main.js"></script>
 </body>
