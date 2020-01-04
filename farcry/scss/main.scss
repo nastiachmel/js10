@@ -186,7 +186,7 @@ h1, h2 {
   font-family: 'Lato', sans-serif;
   font-size: 16px;
   padding-bottom: 20px;
-
+  
   &__col{
     margin-right: 40px;
 
@@ -332,7 +332,9 @@ h1, h2 {
       }
     }
 
-
+    .ui-tabs-hide {
+       display: none; 
+    }
    
  @media screen and (max-width:640px){
   .mainer{

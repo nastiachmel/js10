@@ -7,16 +7,10 @@ getData = (url)=> {
 
 
 search=()=>{
+  let valSelect=document.getElementsByName('movie')[0].value;
 
-  let valName=document.getElementsByTagName('input')[0].value;    
-  let form = document.forms[0];
-  let select = form.elements.movie;
-  
-  for (let i = 0; i < select.options.length; i++) {
-    let option = select.options[i];
-    if(option.selected) {
-      // console.log(option.value);          
-      let valSelect=option.value;
+  let valName=document.getElementsByClassName('form__name-film')[0].value;   
+
       getData('https://www.omdbapi.com/?s="'+valName+'"&type="'+valSelect+'"&page=1&apikey=c557ed72').then(function(result){
         console.log(result.totalResults);
         console.log(result);
@@ -51,39 +45,42 @@ search=()=>{
         }
         
                         
-        pg=(elem)=>{
-          console.log(elem.value);
-          getData('https://www.omdbapi.com/?s="'+valName+'"&type="'+valSelect+'"&page='+elem.value+'&apikey=c557ed72').then(function(result){
-            
-            if(result.Response=='True'){
-              let list= ``;                
-              for (let el of result.Search){
-                list+=`<div class="film" >`;
-                list += `<div class="film__title " >${el.Title}</div>`;
-                list += `<div class="film__year">${el.Year}</div>`;
-                if(el.Poster=='N/A'){
-                  // console.log('gfsdgfs');
-                  el.Poster='./no_img.png';
-                }
-                list += `<div class="film__poster" style="background-image:url(${el.Poster})"></div>`;
-             
-                list += `<button id="detail" class="btn" onclick='details(this)' value='${el.imdbID}'>DETAILS</button>`;
-                list += `</div>`;
-               
-              }
-           
-              document.getElementById('film-list').innerHTML = list;
-              document.getElementById('film-list').scrollIntoView({block: "start", behavior: "smooth"});
-             
-            } 
-         
-          })
-        }
+     
       })
 
     }
-  }
-}
+    pg=(elem)=>{
+      let valSelect=document.getElementsByName('movie')[0].value;
+      let valName=document.getElementsByClassName('form__name-film')[0].value;   
+
+      console.log(elem.value);
+      getData('https://www.omdbapi.com/?s="'+valName+'"&type="'+valSelect+'"&page='+elem.value+'&apikey=c557ed72').then(function(result){
+        
+        if(result.Response=='True'){
+          let list= ``;                
+          for (let el of result.Search){
+            list+=`<div class="film" >`;
+            list += `<div class="film__title " >${el.Title}</div>`;
+            list += `<div class="film__year">${el.Year}</div>`;
+            if(el.Poster=='N/A'){
+              // console.log('gfsdgfs');
+              el.Poster='./no_img.png';
+            }
+            list += `<div class="film__poster" style="background-image:url(${el.Poster})"></div>`;
+         
+            list += `<button id="detail" class="btn" onclick='details(this)' value='${el.imdbID}'>DETAILS</button>`;
+            list += `</div>`;
+           
+          }
+          list += `<div class="film film--empty"></div>`;
+          list += `<div class="film film--empty"></div>`; 
+          document.getElementById('film-list').innerHTML = list;
+          document.getElementById('film-list').scrollIntoView({block: "start", behavior: "smooth"});
+         
+        } 
+     
+      })
+    }
         
 
 details=(elem)=>{  

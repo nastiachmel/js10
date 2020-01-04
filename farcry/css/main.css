@@ -336,6 +336,10 @@ h1, h2 {
   background-color: #048650;
 }
 
+.ui-tabs-hide {
+  display: none;
+}
+
 @media screen and (max-width: 640px) {
   .mainer {
     margin-top: 10px;
